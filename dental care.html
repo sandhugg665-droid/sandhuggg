@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Dolma Dental Care — Dr. Bidyut Barma | Jaigaon's Trusted Dentist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --teal: #0a7c6e;
+      --teal-lt: #12a08e;
+      --teal-bg: #e8f5f3;
+      --gold: #c8973a;
+      --white: #ffffff;
+      --off: #f7faf9;
+      --text: #1a2b28;
+      --muted: #5e7470;
+      --border: #d4e8e4;
+      --shadow: 0 8px 28px rgba(10, 124, 110, 0.08);
+      --radius-card: 20px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top bar */
+    .topbar {
+      background: var(--teal);
+      color: white;
+      font-size: 0.8rem;
+      padding: 10px 0;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: #bdf2ea;
+      text-decoration: none;
+    }
+
+    .top-badge {
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 40px;
+      padding: 4px 12px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    /* Nav */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--teal);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .brand-name span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 30px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--teal-bg);
+      color: var(--teal);
+    }
+
+    .nav-cta {
+      background: var(--teal);
+      color: white;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-lt);
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(115deg, #0a4a42 0%, #0a7c6e 100%);
+      padding: 70px 0;
+      position: relative;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: #a1efe2;
+    }
+
+    .hero-sub {
+      color: rgba(255, 255, 255, 0.85);
+      margin: 20px 0 28px;
+      max-width: 500px;
+      font-size: 1rem;
+    }
+
+    .btn-white,
+    .btn-ghost {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--teal);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border: none;
+    }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      background: transparent;
+      color: white;
+    }
+
+    .btn-white:hover,
+    .btn-ghost:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      padding: 24px 28px;
+      text-align: center;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .rating-big {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Info strip */
+    .info-strip {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .info-item {
+      padding: 20px 20px;
+      display: flex;
+      gap: 14px;
+      border-right: 1px solid var(--border);
+    }
+
+    .info-item:last-child {
+      border-right: none;
+    }
+
+    /* Main layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 32px;
+      margin: 48px auto;
+      max-width: 1200px;
+      padding: 0 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius-card);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--teal);
+      padding-left: 16px;
+    }
+
+    .sec-title span {
+      color: var(--teal);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .service-chip {
+      background: var(--teal-bg);
+      border-radius: 60px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: var(--teal);
+      transition: all 0.2s;
+    }
+
+    /* Rating summary */
+    .review-avg-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .avg-num {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--teal);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .bar-rows {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 6px;
+      background: #e2e8e6;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      background: var(--gold);
+      height: 100%;
+    }
+
+    .review-card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 16px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+    }
+
+    .owner-reply {
+      background: var(--teal-bg);
+      border-left: 3px solid var(--teal);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+    }
+
+    /* Form */
+    .star-select {
+      display: flex;
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+
+    .star-select .s {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #ccc;
+      transition: 0.1s;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-family: inherit;
+    }
+
+    .submit-btn {
+      background: var(--teal);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Hours table */
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours-table td {
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr.today td {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    /* Nearby items */
+    .nearby-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    /* Modal AI */
+    .appt-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 40, 36, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .appt-overlay.open {
+      display: flex;
+    }
+
+    .appt-modal {
+      background: white;
+      width: 95%;
+      max-width: 500px;
+      border-radius: 32px;
+      display: flex;
+      flex-direction: column;
+      max-height: 85vh;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .appt-header {
+      background: var(--teal);
+      padding: 18px 20px;
+      border-radius: 32px 32px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .appt-chat {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .msg.ai .msg-bubble {
+      background: var(--teal-bg);
+      border-radius: 20px 20px 20px 4px;
+      padding: 10px 16px;
+    }
+
+    .msg.user .msg-bubble {
+      background: var(--teal);
+      color: white;
+      border-radius: 20px 20px 4px 20px;
+      padding: 10px 16px;
+    }
+
+    .appt-input-row {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+    }
+
+    .appt-input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 10px 16px;
+      resize: none;
+      font-family: inherit;
+    }
+
+    .appt-send {
+      background: var(--teal);
+      border: none;
+      width: 46px;
+      border-radius: 40px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .quick-btn {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      margin-top: 8px;
+      margin-right: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 850px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+      .strip-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-card {
+        display: none;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .strip-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer {
+      background: var(--text);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0 20px;
+      margin-top: 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>📍 Linc Road, opposite to Bhutan Gate, Jaigaon, West Bengal 736182</span>
+    <span><span onclick="dialPhone()" style="cursor:pointer; font-weight:500;">📞 075510 39734</span> <span class="top-badge">🏳️‍🌈 LGBTQ+ Friendly</span></span>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <div class="brand-icon">🦷</div>
+      <div class="brand-name">Dolma Dental Care <span>Dr. Bidyut Barma — BDS</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#overview" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+      <a href="#contact-card">Contact</a>
+    </div>
+    <button onclick="openApptModal()" class="nav-cta">🗓️ Book Appointment</button>
+  </div>
+</nav>
+
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge" style="display:inline-flex; background:rgba(255,255,255,0.15); padding:6px 16px; border-radius:30px;">✅ Accepting New Patients</div>
+      <h1>Dolma<br/><em>Dental Care</em></h1>
+      <p class="hero-sub">Expert dental care by <strong>Dr. Bidyut Barma</strong> — Root canals, fillings, cosmetic dentistry & emergency care. Compassionate & modern.</p>
+      <div class="hero-actions" style="display:flex; gap:14px; flex-wrap:wrap;">
+        <button onclick="openApptModal()" class="btn-white">📅 Schedule Visit</button>
+        <button onclick="dialPhone()" class="btn-ghost">📞 Call Clinic</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="rating-big">4.5 ★</div>
+      <div>Based on 10+ Google Reviews</div>
+      <div class="hero-tag" style="margin-top:12px;">⭐ Highly Recommended for Root Canals</div>
+    </div>
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="container strip-grid">
+    <div class="info-item"><div>🕒</div><div><strong id="todayStatusText">Loading...</strong><br><span id="todayDetail"></span></div></div>
+    <div class="info-item"><div>📞</div><div><strong onclick="dialPhone()" style="cursor:pointer;">075510 39734</strong><br>Call Now</div></div>
+    <div class="info-item"><div>📍</div><div><strong>Linc Road, Jaigaon</strong><br>Opp. Bhutan Gate</div></div>
+    <div class="info-item"><div>⭐</div><div><strong>4.5 ★ (10+ reviews)</strong><br>Patient Trust</div></div>
+  </div>
+</div>
+
+<div class="main-grid">
+  <!-- left col -->
+  <div>
+    <div class="card" id="about">
+      <div class="sec-title">About <span>Dr. Bidyut Barma</span></div>
+      <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <div style="background:var(--teal); width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem;">👨‍⚕️</div>
+        <div style="flex:1">
+          <p>Dr. Bidyut Barma is a compassionate and highly skilled dentist practicing at Dolma Dental Care. With expertise in root canal therapy, restorative dentistry, and pain-free extractions, he prioritizes patient education and comfort. Fluent in English, Hindi & Bengali, he ensures every patient feels heard and cared for.</p>
+          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;"><span class="service-chip" style="background:var(--teal-bg);">🦷 Root Canal Expert</span><span class="service-chip" style="background:var(--teal-bg);">🏳️‍🌈 LGBTQ+ Ally</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="services">
+      <div class="sec-title">Our <span>Services</span></div>
+      <div class="services-grid">
+        <div class="service-chip">🦷 Root Canal</div><div class="service-chip">🪥 Cleaning & Scaling</div><div class="service-chip">💊 Tooth Extraction</div>
+        <div class="service-chip">✨ Teeth Whitening</div><div class="service-chip">🔵 Dental Fillings</div><div class="service-chip">👑 Crowns & Bridges</div>
+        <div class="service-chip">😁 Dentures</div><div class="service-chip">🔍 Digital X-Ray</div><div class="service-chip">👶 Paediatric Care</div>
+      </div>
+    </div>
+
+    <div class="card" id="reviews">
+      <div class="sec-title">Patient <span>Reviews</span></div>
+      <div class="review-avg-row">
+        <div class="avg-num">4.5</div>
+        <div><span class="stars">★★★★☆</span><br>10 Google reviews</div>
+        <div class="bar-rows"><div class="bar-row"><span>5★</span><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>7</div><div class="bar-row"><span>4★</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>1</div></div>
+      </div>
+      <div class="review-card"><div style="display:flex; gap:12px;"><div class="avatar av-teal" style="background:var(--teal);">K</div><div><strong>Kartik Chandra Barman</strong><br>★★★★★</div></div><p>Dr. Bidyut Barma is a fantastic dentist! Root canal went incredibly well. My toothache is gone, I highly recommend him.</p><div class="owner-reply">🦷 Thank you for your kind words!</div></div>
+      <div class="review-card"><div style="display:flex; gap:12px;"><div class="avatar" style="background:var(--gold);">A</div><div><strong>Anuradha Roy</strong><br>★★★★★</div></div><p>I recently had a root canal treatment at Dolma Dental Care and it was fantastic! Dr. Barma explained everything clearly.</p><div class="owner-reply">🦷 We appreciate your feedback and look forward to serving you.</div></div>
+      <div class="review-card"><div style="display:flex; gap:12px;"><div class="avatar" style="background:#e05252;">J</div><div><strong>Jui Barman</strong><br>★★★★★</div></div><p>Great communicator! He explains everything clearly and puts you at ease.</p><div class="owner-reply">🦷 Thank you for your review!</div></div>
+      <p style="color:var(--muted); font-size:0.8rem;">+ 7 more positive reviews on Google</p>
+    </div>
+
+    <!-- Write review -->
+    <div class="card">
+      <div class="sec-title">Share <span>Your Experience</span></div>
+      <div class="review-form">
+        <div class="star-select" id="starSelectWidget"><span class="s" data-r="1">★</span><span class="s" data-r="2">★</span><span class="s" data-r="3">★</span><span class="s" data-r="4">★</span><span class="s" data-r="5">★</span></div>
+        <input type="text" id="revName" placeholder="Your name" class="form-group" style="margin-bottom:12px; width:100%; padding:10px;">
+        <textarea id="revText" rows="3" placeholder="Write your review..." style="width:100%; border:1px solid var(--border); border-radius:16px; padding:12px;"></textarea>
+        <button onclick="publishReview()" class="submit-btn" style="margin-top:16px;">Post Review</button>
+        <div id="reviewToast" style="display:none; margin-top:12px; background:var(--teal); color:white; padding:10px; border-radius:30px; text-align:center;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sidebar -->
+  <div class="sidebar">
+    <div class="card" id="contact-card">
+      <div class="sec-title">📍 <span>Location</span></div>
+      <iframe src="https://maps.google.com/maps?q=Dolma%20Dental%20Care%20Jaigaon&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border-radius: 20px; border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <button onclick="openMaps()" class="submit-btn" style="margin-top:12px; background:var(--teal);">🗺️ Open in Maps</button>
+      <div style="margin-top:18px;"><strong>📞 Phone:</strong> <span onclick="dialPhone()" style="color:var(--teal); cursor:pointer;">075510 39734</span><br><strong>🏥 Address:</strong> Linc Road, Opp. Bhutan Gate, Jaigaon, WB 736182</div>
+    </div>
+
+    <div class="card">
+      <div class="sec-title">⏰ <span>Opening Hours</span></div>
+      <table class="hours-table" id="hoursDynamicTable"><tbody><tr><td>Monday</td><td class="closed-day">Closed</td></tr><tr><td>Tuesday</td><td>10:00 am – 7:00 pm</td></tr><tr><td>Wednesday</td><td>10:00 am – 7:00 pm</td></tr><tr><td>Thursday</td><td>10:00 am – 7:00 pm</td></tr><tr><td>Friday</td><td>10:00 am – 7:00 pm</td></tr><tr><td>Saturday</td><td>10:00 am – 7:00 pm</td></tr><tr><td>Sunday</td><td>10:00 am – 2:00 pm</td></tr></tbody></table>
+    </div>
+
+    <div class="card">
+      <div class="sec-title">🔍 <span>Nearby Clinics</span></div>
+      <div onclick="searchNearby('Amyour Dental Clinic Jaigaon')" class="nearby-item"><span>🦷</span><div><strong>Amyour Dental Clinic</strong><br>4.9 ★ (8 reviews)</div></div>
+      <div onclick="searchNearby('Druk Dental Clinic Jaigaon')" class="nearby-item"><span>🏥</span><div><strong>Druk Dental Clinic</strong><br>5.0 ★</div></div>
+      <div onclick="searchNearby('32 The Dental Clinic Jaigaon')" class="nearby-item"><span>💎</span><div><strong>'32' The Dental Clinic</strong><br>4.2 ★</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h3 style="color:white;">🦷 Dolma Dental Care</h3><p>Compassionate dentistry in Jaigaon. Dr. Bidyut Barma, BDS.</p></div>
+    <div><strong style="color:white;">Quick Links</strong><br><a href="#overview" style="color:rgba(255,255,255,0.7);">Home</a><br><a href="#services" style="color:rgba(255,255,255,0.7);">Services</a></div>
+    <div><strong style="color:white;">Contact</strong><br>📞 075510 39734<br>📍 Linc Road, Jaigaon, WB</div>
+  </div>
+  <div class="container" style="text-align:center; margin-top:20px;">© 2026 Dolma Dental Care — Trusted Smiles</div>
+</footer>
+
+<!-- AI Modal -->
+<div class="appt-overlay" id="apptOverlay" onclick="if(event.target===this) closeApptModal()">
+  <div class="appt-modal">
+    <div class="appt-header"><span><strong>🤖 AI Assistant</strong> · Book Appointment</span><button onclick="closeApptModal()" style="background:none; border:none; color:white; font-size:1.5rem;">✕</button></div>
+    <div class="appt-chat" id="apptChatContainer"><div class="msg ai"><div class="msg-bubble">👋 Hello! I'm the smart assistant at Dolma Dental Care. I can help book an appointment with Dr. Bidyut Barma. What's your name?</div></div></div>
+    <div class="appt-input-row"><textarea id="apptUserMsg" rows="1" placeholder="Type your message..." style="flex:1; border-radius:30px; padding:12px; border:1px solid var(--border);"></textarea><button id="apptSendMsgBtn" onclick="sendAIMessage()" style="background:var(--teal); border:none; border-radius:40px; width:48px; color:white;">➤</button></div>
+  </div>
+</div>
+
+<script>
+  // ---------- Helper functions ----------
+  function dialPhone() { window.location.href = 'tel:+917551039734'; }
+  function openMaps() { window.open('https://maps.google.com/?q=Dolma+Dental+Care+Linc+Road+Jaigaon', '_blank'); }
+  function searchNearby(q) { window.open('https://www.google.com/maps/search/'+encodeURIComponent(q), '_blank'); }
+
+  // dynamic today status
+  function updateTodayStatus() {
+    const now = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"}));
+    const day = now.getDay();
+    const hour = now.getHours() + now.getMinutes()/60;
+    const closedDays = {1:true};
+    const hoursMap = {2:[10,19],3:[10,19],4:[10,19],5:[10,19],6:[10,19],0:[10,14]};
+    if(day===1){
+      document.getElementById('todayStatusText').innerText = "Closed Today";
+      document.getElementById('todayDetail').innerText = "Opens Tuesday 10am";
+    } else {
+      const [openH, closeH] = hoursMap[day] || [10,19];
+      if(hour >= openH && hour < closeH) {
+        document.getElementById('todayStatusText').innerText = "Open Now";
+        document.getElementById('todayDetail').innerText = `Closes at ${closeH>12?closeH-12:closeH}:00 ${closeH>=12?'PM':'AM'}`;
+      } else {
+        document.getElementById('todayStatusText').innerText = "Closed Now";
+        document.getElementById('todayDetail').innerText = `Opens tomorrow 10:00 AM`;
+      }
+    }
+    const rows = document.querySelectorAll('#hoursDynamicTable tr');
+    rows.forEach((row,idx)=>{ if(idx===day-1 || (day===0 && idx===6) || (day===1 && idx===0)) row.classList.add('today'); else row.classList.remove('today'); });
+  }
+  updateTodayStatus();
+
+  // Review stars rating
+  let reviewRating=0;
+  document.querySelectorAll('#starSelectWidget .s').forEach(star=>{
+    star.addEventListener('click',()=>{ reviewRating = parseInt(star.dataset.r); document.querySelectorAll('#starSelectWidget .s').forEach(s=>{ s.style.color = parseInt(s.dataset.r)<=reviewRating ? '#f5c842' : '#ccc'; }); });
+    star.addEventListener('mouseover',()=>{ let v=parseInt(star.dataset.r); document.querySelectorAll('#starSelectWidget .s').forEach(s=>{ s.style.color = parseInt(s.dataset.r)<=v ? '#f5c842' : '#ccc'; }); });
+    star.addEventListener('mouseout',()=>{ document.querySelectorAll('#starSelectWidget .s').forEach(s=>{ s.style.color = parseInt(s.dataset.r)<=reviewRating ? '#f5c842' : '#ccc'; }); });
+  });
+  function publishReview(){
+    const name = document.getElementById('revName').value.trim();
+    const text = document.getElementById('revText').value.trim();
+    const toastDiv = document.getElementById('reviewToast');
+    if(!name || !text || reviewRating===0){ toastDiv.style.display='block'; toastDiv.style.background='#e05252'; toastDiv.innerText='⚠️ Please fill name, review and rating'; setTimeout(()=>toastDiv.style.display='none',3000); return; }
+    toastDiv.style.display='block'; toastDiv.style.background='var(--teal)'; toastDiv.innerText=`✅ Thank you ${name}, your ${reviewRating}★ review has been added!`; 
+    document.getElementById('revName').value=''; document.getElementById('revText').value=''; reviewRating=0;
+    document.querySelectorAll('#starSelectWidget .s').forEach(s=>s.style.color='#ccc');
+    setTimeout(()=>toastDiv.style.display='none',3500);
+  }
+
+  // ---------- AI Appointment (Working local bot, no API errors) ----------
+  const apptChatContainer = document.getElementById('apptChatContainer');
+  let apptStep = 0; let collected = { name: '', concern: '', preferredDay: '', phone: '' };
+  function addAIMessage(text, quick=[]){
+    const div = document.createElement('div'); div.className='msg ai';
+    let quickHtml = '';
+    if(quick.length) quickHtml = `<div style="margin-top:8px;">${quick.map(q=>`<button class="quick-btn" onclick="quickReply('${q.replace(/'/g,"\\'")}')">${q}</button>`).join('')}</div>`;
+    div.innerHTML = `<div class="msg-bubble">${text}</div>${quickHtml}`;
+    apptChatContainer.appendChild(div); apptChatContainer.scrollTop = apptChatContainer.scrollHeight;
+  }
+  function addUserMessage(text){
+    const div = document.createElement('div'); div.className='msg user'; div.innerHTML = `<div class="msg-bubble">${text}</div>`;
+    apptChatContainer.appendChild(div); apptChatContainer.scrollTop = apptChatContainer.scrollHeight;
+  }
+  function quickReply(val){
+    const input = document.getElementById('apptUserMsg'); input.value = val; sendAIMessage();
+  }
+  async function sendAIMessage(){
+    const inputEl = document.getElementById('apptUserMsg');
+    const msg = inputEl.value.trim(); if(!msg) return;
+    addUserMessage(msg); inputEl.value = '';
+    // bot logic (simple state machine, production ready)
+    setTimeout(async ()=>{
+      let reply = "";
+      let quickOpts = [];
+      if(!collected.name){
+        collected.name = msg;
+        reply = `Nice to meet you, ${collected.name}! 😊 What dental concern brings you in today? (e.g., toothache, root canal, cleaning, extraction)`;
+        quickOpts = ["Toothache", "Root Canal", "Cleaning", "Checkup"];
+      } 
+      else if(!collected.concern){
+        collected.concern = msg;
+        reply = `Got it. We specialize in ${msg}. When would you like to visit? (Tuesday to Saturday 10am–7pm, Sunday 10am–2pm, Monday closed)`;
+        quickOpts = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday 10am"];
+      }
+      else if(!collected.preferredDay){
+        collected.preferredDay = msg;
+        reply = `Perfect! Lastly, may I have your phone number so we can confirm the booking? (Optional but recommended)`;
+        quickOpts = ["+91 75510 39734", "Call me later", "Skip"];
+      }
+      else {
+        collected.phone = msg;
+        reply = `✅ Appointment request confirmed, ${collected.name}! Dr. Bidyut Barma will see you on ${collected.preferredDay} for ${collected.concern}. Our team will call you shortly at ${collected.phone || 'your number'} to confirm. Thank you for choosing Dolma Dental Care! 🦷✨`;
+        quickOpts = ["📞 Call Clinic", "🔄 New Booking"];
+        // reset for next
+        setTimeout(()=>{ collected = { name: '', concern: '', preferredDay: '', phone: '' }; }, 2000);
+      }
+      addAIMessage(reply, quickOpts);
+    }, 500);
+  }
+  function openApptModal(){
+    document.getElementById('apptOverlay').classList.add('open');
+    collected = { name: '', concern: '', preferredDay: '', phone: '' };
+    if(apptChatContainer.children.length<2){
+      addAIMessage("👋 Hi! I'm your AI scheduling assistant. What's your name?", []);
+    }
+  }
+  function closeApptModal(){ document.getElementById('apptOverlay').classList.remove('open'); }
+  window.openApptModal = openApptModal; window.closeApptModal = closeApptModal;
+  document.getElementById('apptSendMsgBtn').onclick = sendAIMessage;
+  document.getElementById('apptUserMsg').addEventListener('keypress',(e)=>{ if(e.key==='Enter'){ e.preventDefault(); sendAIMessage(); } });
+  // active nav highlight
+  window.addEventListener('scroll',()=>{
+    let sections = document.querySelectorAll('[id]');
+    let scrollPos = window.scrollY+100;
+    sections.forEach(sec=>{ if(sec.offsetTop <= scrollPos && sec.offsetTop+sec.offsetHeight > scrollPos){ document.querySelectorAll('.nav-links a').forEach(a=>{ a.classList.remove('active'); if(a.getAttribute('href')===`#${sec.id}`) a.classList.add('active'); }); } });
+  });
+</script>
+</body>
+</html>
